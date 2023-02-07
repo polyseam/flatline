@@ -9,7 +9,8 @@ const Home = () => {
       const file = acceptedFiles[0];
       const reader = new FileReader();
       reader.onload = _ => {
-        setFileText(reader.result.replaceAll('\n',''));
+        const minified = reader.result.replace(/\s+/g, '');
+        setFileText(minified);
       };
       reader.readAsText(file);
     }, [])
